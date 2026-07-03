@@ -1,88 +1,266 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="booking.css" />
-    <title>Booking</title>
-  </head>
-  <body>
-    <section>
-      <div class="wrapper">
-        <nav>
-          <div class="Logo">
-            <div>Noble Finance</div>
-          </div>
-          <div class="Nav-tables">
-            <div>
-              <a
-                href="Services.html"
-                style="text-decoration: none; color: inherit"
-                >Service</a
-              >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="booking.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Book Appointment | Noble Finance</title>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon"><i class="fas fa-crown"></i></span>
+                <span class="logo-text">Noble Finance</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="Services.html" class="nav-link">Services</a>
+                <a href="booking.html" class="nav-link active">Contact</a>
             </div>
-            <div>
-              <button>Book <span>on appoinment</span></button>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </section>
-    <section>
-      <div class="wrapper">
-        <div class="main">
-          <div class="main-left">
-            <img
-              src="data:image/png;base64,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"
-              alt=""
-            />
-          </div>
-          <div class="main-right">
-            <div>
-              <h2>Book an appointment now</h2>
-            </div>
-            <div>
-              <p>Serving individuals and small businesses since 1987</p>
-            </div>
-            <div>
-              <button>Contact Us</button>
-            </div>
-          </div>
+            <a href="booking.html" class="nav-cta">
+                <span>Book Appointment</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+            <button class="mobile-toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
-      </div>
-    </section>
-    <section>
-      <!-- Footer-Section-start -->
-      <div class="wrapper">
-        <section class="footer-section">
-          <div class="footer-inner">
-            <div class="footer">
-              <h1>Noble Finance</h1>
-              <p>
-                <a
-                  href="Services.html"
-                  style="text-decoration: none; color: inherit"
-                  >Services</a
-                >
-              </p>
-              <button>Book <span>on Appoinment</span></button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" class="mobile-link">Home</a>
+        <a href="Services.html" class="mobile-link">Services</a>
+        <a href="booking.html" class="mobile-link active">Contact</a>
+        <a href="booking.html" class="mobile-cta">Book Appointment</a>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="page-header-bg">
+            <div class="page-gradient"></div>
+            <div class="page-pattern"></div>
+        </div>
+        <div class="container">
+            <div class="page-header-content">
+                <div class="page-header-text">
+                    <span class="page-tag">Book Now</span>
+                    <h1>Book an Appointment<br><span class="highlight">Today</span></h1>
+                    <p>Serving individuals and small businesses since 1987. Schedule your consultation and take the first step toward financial clarity.</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>(555) 123-4567</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@noblefinance.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Mon - Fri: 9AM - 6PM</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-header-image">
+                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=600&fit=crop" alt="Financial advisor">
+                </div>
             </div>
-            <div class="footer-end">
-              <div class="footer-end-left">
-                <h5>Financial Clarity You Can Trust</h5>
-                <p>
-                  Trusted financial guidance for every stage of life and
-                  business since 1987
-                </p>
-              </div>
-              <div class="footer-end-right">
-                <p>© 2025 All Rights Reserved</p>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-      <!-- Footer-section-end -->
+        </div>
     </section>
-  </body>
+
+    <!-- Booking Form Section -->
+    <section class="booking-section">
+        <div class="container">
+            <div class="booking-grid">
+                <div class="booking-info">
+                    <span class="section-tag">Get In Touch</span>
+                    <h2 class="section-title">Schedule Your<br>Consultation</h2>
+                    <p class="section-desc">Fill out the form below and our team will get back to you within 24 hours. Your financial future starts with a conversation.</p>
+
+                    <div class="benefits-list">
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><i class="fas fa-check"></i></div>
+                            <div>
+                                <h4>Free Initial Consultation</h4>
+                                <p>No obligation, just expert advice tailored to your needs.</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><i class="fas fa-check"></i></div>
+                            <div>
+                                <h4>24-Hour Response</h4>
+                                <p>We value your time and respond to all inquiries promptly.</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><i class="fas fa-check"></i></div>
+                            <div>
+                                <h4>Secure & Confidential</h4>
+                                <p>Your information is protected with enterprise-grade security.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="booking-form-wrapper">
+                    <form id="bookingForm" class="booking-form">
+                        <div class="form-header">
+                            <h3>Book Your Appointment</h3>
+                            <p>All fields marked with * are required</p>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" id="firstName" name="firstName" required placeholder="John">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" id="lastName" name="lastName" required placeholder="Doe">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-envelope"></i>
+                                    <input type="email" id="email" name="email" required placeholder="john@example.com">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-phone"></i>
+                                    <input type="tel" id="phone" name="phone" required placeholder="(555) 123-4567">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="service">Service Needed *</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-briefcase"></i>
+                                <select id="service" name="service" required>
+                                    <option value="">Select a service</option>
+                                    <option value="tax">Tax Preparation</option>
+                                    <option value="audit">IRS Audit Assistance</option>
+                                    <option value="bookkeeping">Bookkeeping</option>
+                                    <option value="consultation">General Consultation</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Additional Details</label>
+                            <div class="input-wrapper textarea-wrapper">
+                                <i class="fas fa-comment-alt"></i>
+                                <textarea id="message" name="message" rows="4" placeholder="Tell us about your situation..."></textarea>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <span>Submit Request</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon"><i class="fas fa-crown"></i></span>
+                        <span class="logo-text">Noble Finance</span>
+                    </a>
+                    <p>Financial Clarity You Can Trust. Trusted guidance for every stage of life and business since 1987.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Quick Links</h4>
+                        <a href="index.html">Home</a>
+                        <a href="Services.html">Services</a>
+                        <a href="booking.html">Contact</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Services</h4>
+                        <a href="Services.html">Tax Preparation</a>
+                        <a href="Services.html">Audit Assistance</a>
+                        <a href="Services.html">Bookkeeping</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Contact</h4>
+                        <p><i class="fas fa-envelope"></i> info@noblefinance.com</p>
+                        <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Noble Finance. All Rights Reserved.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const btn = this.querySelector('.submit-btn');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<span>Sending...</span><i class="fas fa-spinner fa-spin"></i>';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                btn.innerHTML = '<span>Request Sent!</span><i class="fas fa-check"></i>';
+                btn.style.background = 'var(--success)';
+
+                setTimeout(() => {
+                    alert('Thank you! Your appointment request has been submitted. We will contact you within 24 hours.');
+                    btn.innerHTML = originalText;
+                    btn.style.background = '';
+                    btn.disabled = false;
+                    this.reset();
+                }, 1000);
+            }, 1500);
+        });
+    </script>
+</body>
 </html>
